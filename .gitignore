@@ -1,0 +1,21 @@
+# Airflow logs & DB
+logs/
+airflow.db
+unittest.cfg
+
+# Docker
+*.log
+*.pid
+*.sock
+*.env
+.env
+.dockerignore
+
+# Data files
+data/
+intermediate/
+
+# Terraform 
+*.tfstate
+*.tfstate.backup
+.terraform/
