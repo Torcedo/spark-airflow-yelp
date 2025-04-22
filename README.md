@@ -20,31 +20,25 @@ Ce projet est basé sur une architecture en médaillon, permettant une gestion o
 - **Apache Airflow** (Orchestration automatisée)
 
 ## Structure du Projet
+```text
+├── dags                  # Définition des DAG Airflow
+├── data                  # Données sources JSON
+├── docker                # Configuration Docker et Docker Compose
+├── gcp-creds             # Credentials GCP
+├── intermediate          # Données transformées (Parquet)
+│   └── datasparkyelp-yelp-intermediate
+│       ├── business
+│       ├── review
+│       ├── tip
+│       ├── user
+│       └── checkin
+├── scripts               # Scripts complémentaires
+├── spark                 # Scripts PySpark pour transformations
+└── terraform             # Infrastructure Terraform
+    ├── modules
+    │   ├── bigquery      # Schémas BigQuery
+    │   ├── composer      # Cloud Composer
+    │   ├── dataproc      # Configuration Dataproc
+    │   └── storage       # Cloud Storage
+```
 
-.
-├── dags/                    # Définitions des DAGs Airflow
-├── data/                    # Données locales pour tests
-├── docker/                  # Configuration Docker
-│   ├── Dockerfile           # Image pour le développement
-│   └── docker-compose.yml   # Configuration Airflow locale
-├── gcp-creds/               # Credentials GCP (.gitignore)
-├── intermediate/            # Données transformées
-│   └── datasparkyelp-yelp-intermediate/
-│       ├── business/        # Données business partitionnées
-│       ├── review/          # Données reviews partitionnées
-│       ├── tip/             # Données tips partitionnées
-│       ├── user/            # Données users partitionnées
-│       └── checkin/         # Données checkins partitionnées
-├── scripts/                 # Scripts utilitaires
-├── spark/                   # Jobs Spark
-│   ├── process_business.py  # Traitement des données business
-│   ├── process_review.py    # Traitement des données reviews
-│   └── ...
-└── terraform/               # Infrastructure as Code
-    ├── main.tf              # Configuration principale
-    ├── variables.tf         # Variables Terraform
-    └── modules/
-        ├── bigquery/        # Configuration BigQuery
-        ├── composer/       # Configuration Airflow
-        ├── dataproc/       # Cluster Dataproc
-        └── storage/        # Buckets GCS
