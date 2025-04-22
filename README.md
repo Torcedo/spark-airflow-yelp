@@ -2,9 +2,10 @@
 
 ## Contexte du Projet
 
-L'objectif de ce projet est d'assimiler et maîtriser les technologies cloud proposées par Google Cloud Platform (GCP) à travers un cas concret d'ingestion et de traitement de données issues du dataset Yelp. Les données transformées pourraient être utilisées pour la création de dashboards analytiques ou pour proposer des recommandations personnalisées aux utilisateurs finaux.
+L'objectif de ce projet est d'assimiler et maîtriser les technologies cloud proposées par Google Cloud Platform (GCP) à travers un cas concret d'ingestion et de traitement de données issues du dataset Yelp. Ce projet illustre un traitement par batch avec une approche ELT (Extract, Load, Transform), dans laquelle les données sont d'abord chargées telles quelles dans le data lake (Cloud Storage), puis transformées via Spark (Dataproc) avant d'être chargées dans l'entrepôt de données (BigQuery).
+Les données transformées pourraient être utilisées pour la création de dashboards analytiques ou pour proposer des recommandations personnalisées aux utilisateurs finaux.
 
-Ce projet est basé sur une architecture en médaillon, permettant une gestion optimale des données en plusieurs niveaux : brut (raw), intermédiaire (transformé) et final (structuré pour analyse).
+Ce projet est basé sur une architecture en médaillon, permettant une gestion optimale des données en plusieurs niveaux : bronze (raw), silver (intermediate) et gold(structuré pour analyse dans bigquery).
 
 ## Technologies et Outils Utilisés
 
