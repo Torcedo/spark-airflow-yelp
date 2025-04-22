@@ -1,47 +1,32 @@
-resource "google_storage_bucket" "yelp_raw" {
-  name                        = "${var.project_id}-yelp-raw"
-  location                    = "EU"
-  force_destroy               = true
-  uniform_bucket_level_access = true
-  storage_class               = "STANDARD"
-
-  versioning {
-    enabled = true
-  }
-
-  labels = {
-    env    = "dev"
-    source = "terraform"
-  }
+module "storage" {
+  source     = "./modules/storage"
+  project_id = var.project_id
+  region     = var.region
+  env        = var.env
 }
 
-resource "google_storage_bucket" "yelp_intermediate" {
-  name                        = "${var.project_id}-yelp-intermediate"
-  location                    = "EU"
-  force_destroy               = true
-  uniform_bucket_level_access = true
-  storage_class               = "STANDARD"
-
-  versioning {
-    enabled = true
-  }
-
-  labels = {
-    env    = "dev"
-    source = "terraform"
-    usage  = "intermediate"
-  }
+module "bigquery" {
+  source     = "./modules/bigquery"
+  project_id = var.project_id
+  region     = var.region
+  env        = var.env
 }
 
-resource "google_bigquery_dataset" "yelp_dataset" {
-  dataset_id                  = "yelp"
-  friendly_name               = "Yelp Dataset"
-  description                 = "Dataset Yelp destiné à recevoir les tables transformées depuis Dataproc"
-  location                    = var.region
-  delete_contents_on_destroy = true
+module "dataproc" {
+  source     = "./modules/dataproc"
+  project_id = var.project_id
+  region     = var.region
+  env        = var.env
+}
 
-  labels = {
-    env    = "dev"
-    source = "terraform"
-  }
+module "composer" {
+  source     = "./modules/composer"
+  project_id = var.project_id
+  region     = var.region
+  env        = var.env
+
+  # noms des buckets storage
+  bucket_raw          = module.storage.bucket_yelp_raw_name
+  bucket_intermediate = module.storage.bucket_yelp_intermediate_name
+  bucket_scripts      = module.storage.bucket_spark_scripts_name
 }

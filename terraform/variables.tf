@@ -1,10 +1,14 @@
 variable "project_id" {
+  description = "L'identifiant du projet GCP"
   type        = string
-  description = "L'ID de ton projet GCP"
 }
 
 variable "region" {
-  description = "La région GCP à utiliser"
-  type    = string
-  default = "europe-west1"
+  description = "Région par défaut"
+  type        = string
+}
+
+variable "env" {
+  description = "Environnement (dev, prod, etc.)"
+  type        = string
 }

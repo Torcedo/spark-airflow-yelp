@@ -19,3 +19,5 @@ intermediate/
 *.tfstate
 *.tfstate.backup
 .terraform/
+
+gcp-creds/

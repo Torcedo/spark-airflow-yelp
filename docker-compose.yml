@@ -30,11 +30,15 @@ services:
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
-      AIRFLOW__CORE__FERNET_KEY: ''
+      AIRFLOW__CORE__FERNET_KEY: ${FERNET_KEY}
+      AIRFLOW__WEBSERVER__SECRET_KEY: ${SECRET_KEY}
       AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+      GOOGLE_APPLICATION_CREDENTIALS: /opt/airflow/key.json
     volumes:
       - ./dags:/opt/airflow/dags
       - ./data:/opt/airflow/data
+      - ./spark:/opt/airflow/scripts
+      - ./gcp-creds/key.json:/opt/airflow/key.json
     ports:
       - "8080:8080"
     command: >
@@ -52,9 +56,14 @@ services:
     environment:
       AIRFLOW__CORE__EXECUTOR: LocalExecutor
       AIRFLOW__CORE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
+      AIRFLOW__CORE__FERNET_KEY: ${FERNET_KEY}
+      AIRFLOW__WEBSERVER__SECRET_KEY: ${SECRET_KEY}
+      GOOGLE_APPLICATION_CREDENTIALS: /opt/airflow/key.json
     volumes:
       - ./dags:/opt/airflow/dags  
       - ./data:/opt/airflow/data
+      - ./spark:/opt/airflow/scripts
+      - ./gcp-creds/key.json:/opt/airflow/key.json
     command: >
       bash -c "airflow scheduler"
 

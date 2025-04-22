@@ -1,0 +1,16 @@
+[
+    { "name": "review_id", "type": "STRING", "mode": "NULLABLE" },
+    { "name": "user_id", "type": "STRING", "mode": "NULLABLE" },
+    { "name": "business_id", "type": "STRING", "mode": "NULLABLE" },
+    { "name": "stars", "type": "FLOAT", "mode": "NULLABLE" },
+    { "name": "useful", "type": "INTEGER", "mode": "NULLABLE" },
+    { "name": "funny", "type": "INTEGER", "mode": "NULLABLE" },
+    { "name": "cool", "type": "INTEGER", "mode": "NULLABLE" },
+    { "name": "date", "type": "TIMESTAMP", "mode": "NULLABLE" },
+    { "name": "text", "type": "STRING", "mode": "NULLABLE" },
+    { "name": "text_length", "type": "INTEGER", "mode": "NULLABLE" },
+    { "name": "engagement", "type": "INTEGER", "mode": "NULLABLE" },
+    { "name": "year", "type": "INTEGER", "mode": "NULLABLE" },
+    { "name": "month", "type": "INTEGER", "mode": "NULLABLE" }
+]
+  

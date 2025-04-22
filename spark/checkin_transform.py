@@ -1,39 +1,29 @@
 from pyspark.sql import SparkSession
-from pyspark.sql.functions import *
+from pyspark.sql.functions import to_timestamp, year, col
+import sys
 
-spark = SparkSession.builder.appName("YelpCheckinTransform").getOrCreate()
+# Initialisation Spark
+spark = SparkSession.builder \
+    .appName("YelpCheckinTransform") \
+    .config("spark.sql.shuffle.partitions", "200") \
+    .config("spark.sql.execution.arrow.pyspark.enabled", "true") \
+    .getOrCreate()
+# Récupérer les arguments passés par Airflow
 
+input_path = sys.argv[1]
+output_path = sys.argv[2]
 
-# Lecture du JSON depuis GCS
-#input_path = "gs://datasparkyelp-yelp-raw/review/yelp_academic_dataset_review.json"
-#output_path = "gs://datasparkyelp-yelp-intermediate/review"
+df = spark.read.option("multiline", "false").json(input_path)
 
+# Transformation
+df_clean = df.withColumn("timestamp", to_timestamp(col("timestamp"), "yyyy-MM-dd HH:mm:ss"))
+df_with_year = df_clean.withColumn("year", year(col("timestamp")))
 
-input_path = "data/yelp_academic_dataset_checkin.json"
-output_path = "intermediate/datasparkyelp-yelp-intermediate/checkin"
+df_with_year = df_with_year.repartition(100, "year")
 
-df = spark.read.option("mode", "PERMISSIVE").json(input_path)
-
-if "_corrupt_record" in df.columns:
-    df = df.filter(col("_corrupt_record").isNull()).drop("_corrupt_record")
-
-# Séparation des dates
-df_cleaned = df.filter(col("date").isNotNull()) \
-    .withColumn("checkin_time", explode(split(col("date"), ","))) \
-    .withColumn("checkin_time", to_timestamp(col("checkin_time").cast("string"))) \
-    .withColumn("year", year("checkin_time")) \
-    .withColumn("month", month("checkin_time")) \
-    .dropna(subset=["business_id", "checkin_time"])
-
-
-df_cleaned= df_cleaned.repartition(10)
-
-
-# Export détaillé avec les dates (partitionné)
-df_cleaned.write \
-    .partitionBy("year") \
+df_with_year.write \
     .mode("overwrite") \
-    .parquet(output_path + "/detailed")
-
+    .partitionBy("year") \
+    .parquet(output_path)
 
 spark.stop()
