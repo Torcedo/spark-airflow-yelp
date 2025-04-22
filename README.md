@@ -20,3 +20,31 @@ Ce projet est basé sur une architecture en médaillon, permettant une gestion o
 - **Apache Airflow** (Orchestration automatisée)
 
 ## Structure du Projet
+
+.
+├── dags/                    # Définitions des DAGs Airflow
+├── data/                    # Données locales pour tests
+├── docker/                  # Configuration Docker
+│   ├── Dockerfile           # Image pour le développement
+│   └── docker-compose.yml   # Configuration Airflow locale
+├── gcp-creds/               # Credentials GCP (.gitignore)
+├── intermediate/            # Données transformées
+│   └── datasparkyelp-yelp-intermediate/
+│       ├── business/        # Données business partitionnées
+│       ├── review/          # Données reviews partitionnées
+│       ├── tip/             # Données tips partitionnées
+│       ├── user/            # Données users partitionnées
+│       └── checkin/         # Données checkins partitionnées
+├── scripts/                 # Scripts utilitaires
+├── spark/                   # Jobs Spark
+│   ├── process_business.py  # Traitement des données business
+│   ├── process_review.py    # Traitement des données reviews
+│   └── ...
+└── terraform/               # Infrastructure as Code
+    ├── main.tf              # Configuration principale
+    ├── variables.tf         # Variables Terraform
+    └── modules/
+        ├── bigquery/        # Configuration BigQuery
+        ├── composer/       # Configuration Airflow
+        ├── dataproc/       # Cluster Dataproc
+        └── storage/        # Buckets GCS
