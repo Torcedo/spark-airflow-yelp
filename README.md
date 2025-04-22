@@ -81,6 +81,7 @@ Le DAG Airflow orchestre les étapes suivantes :
 3. Exécution des scripts PySpark via Dataproc pour transformer les données
 4. Stockage des fichiers Parquet dans le bucket `intermediate`
 5. Chargement final des fichiers Parquet vers BigQuery
+<img width="224" alt="image" src="https://github.com/user-attachments/assets/9554c407-7c2b-4e98-9a71-73a6d10fc011" />
 
 ## Difficultés rencontrées & Optimisations réalisées
 
