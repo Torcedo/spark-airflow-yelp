@@ -8,4 +8,8 @@ resource "google_bigquery_table" "tip" {
   labels = {
     env = var.env
   }
+time_partitioning {
+    type  = "DAY"
+    field = "date"  
+  }
 }

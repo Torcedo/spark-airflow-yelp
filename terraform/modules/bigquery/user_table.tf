@@ -8,4 +8,9 @@ resource "google_bigquery_table" "user" {
   labels = {
     env = var.env
   }
+
+  time_partitioning {
+    type  = "DAY"
+    field = "yelping_since" 
+  }
 }

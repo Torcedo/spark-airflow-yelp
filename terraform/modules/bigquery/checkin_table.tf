@@ -8,4 +8,8 @@ resource "google_bigquery_table" "checkin" {
   labels = {
     env = var.env
   }
+  time_partitioning {
+    type  = "DAY"
+    field = "timestamp"  
+  }
 }

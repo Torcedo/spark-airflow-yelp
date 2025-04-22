@@ -8,4 +8,8 @@ resource "google_bigquery_table" "business" {
   labels = {
     env = var.env
   }
+
+  clustering {
+    fields = ["state"]
+  }
 }
