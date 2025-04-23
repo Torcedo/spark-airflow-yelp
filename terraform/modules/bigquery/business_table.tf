@@ -9,7 +9,6 @@ resource "google_bigquery_table" "business" {
     env = var.env
   }
 
-  clustering {
-    fields = ["state"]
-  }
+  clustering = ["city"]
+  
 }

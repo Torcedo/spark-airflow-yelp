@@ -7,6 +7,7 @@ from airflow.utils.task_group import TaskGroup
 from airflow.operators.python import PythonOperator
 from airflow.providers.google.cloud.hooks.gcs import GCSHook
 from airflow.providers.google.cloud.transfers.gcs_to_bigquery import GCSToBigQueryOperator
+import re 
 
 import subprocess
 import os
@@ -147,6 +148,13 @@ with DAG(
             output_name = (
                 "checkin" if "checkin_opti" in json_file else json_file.replace("yelp_academic_dataset_", "").replace(".json", "")
             )
+            type_match = re.match(r"(business|review|tip|user|checkin)", output_name)
+            if type_match:
+                script_name = f"{type_match.group(1)}_transform.py"
+            else:
+                continue
+            if script_name not in PYTHON_SCRIPTS:
+                continue
             script_name = f"{output_name}_transform.py"
             task = create_spark_transform_task(json_file)
             if task:

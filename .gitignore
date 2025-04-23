@@ -21,3 +21,4 @@ intermediate/
 .terraform/
 
 gcp-creds/
+venv/
