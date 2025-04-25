@@ -9,7 +9,7 @@ resource "google_bigquery_table" "tip" {
     env = var.env
   }
 time_partitioning {
-    type  = "DAY"
+    type  = "YEAR"
     field = "date"  
   }
 }

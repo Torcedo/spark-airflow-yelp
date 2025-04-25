@@ -1,6 +1,6 @@
 resource "google_storage_bucket" "yelp_raw" {
   name                        = "${var.project_id}-yelp-raw"
-  location                    = "EU"
+  location                    = "europe-west1"
   force_destroy               = true
   uniform_bucket_level_access = true
   storage_class               = "STANDARD"
@@ -16,7 +16,7 @@ resource "google_storage_bucket" "yelp_raw" {
 }
 resource "google_storage_bucket" "yelp_intermediate" {
   name                        = "${var.project_id}-yelp-intermediate"
-  location                    = "EU"
+  location                    = "europe-west1"
   force_destroy               = true
   uniform_bucket_level_access = true
   storage_class               = "STANDARD"
@@ -35,7 +35,7 @@ resource "google_storage_bucket" "yelp_intermediate" {
 
 resource "google_storage_bucket" "spark_scripts" {
   name     = "${var.project_id}-spark-scripts"
-  location = "EU"
+  location = "europe-west1"
   force_destroy = true
   uniform_bucket_level_access = true
   storage_class = "STANDARD"

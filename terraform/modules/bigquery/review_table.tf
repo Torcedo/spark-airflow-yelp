@@ -9,7 +9,7 @@ resource "google_bigquery_table" "review" {
     env = var.env
   }
   time_partitioning {
-    type  = "DAY"
-    field = "date"  
+    type  = "YEAR"
+    field = "date"
   }
 }

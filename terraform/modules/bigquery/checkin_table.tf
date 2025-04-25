@@ -9,7 +9,7 @@ resource "google_bigquery_table" "checkin" {
     env = var.env
   }
   time_partitioning {
-    type  = "DAY"
+    type  = "YEAR"
     field = "timestamp"  
   }
 }

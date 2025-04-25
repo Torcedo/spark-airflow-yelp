@@ -10,7 +10,7 @@ resource "google_bigquery_table" "user" {
   }
 
   time_partitioning {
-    type  = "DAY"
+    type  = "YEAR"
     field = "yelping_since" 
   }
 }

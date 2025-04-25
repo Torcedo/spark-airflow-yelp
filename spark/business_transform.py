@@ -15,10 +15,11 @@ if "_corrupt_record" in df.columns:
     df = df.filter(col("_corrupt_record").isNull()).drop("_corrupt_record")
 
 df_transformed = df.dropna(subset=["business_id", "name", "address", "city", "state"]) \
-    .dropDuplicates(["business_id"])\
+    .dropDuplicates(["business_id"]) \
     .withColumn("is_open", col("is_open").cast("boolean")) \
     .withColumn("review_count", col("review_count").cast("int")) \
-    .withColumn("stars", col("stars").cast("double"))
+    .withColumn("stars", col("stars").cast("double")) \
+    .withColumn("state_partition", col("state"))
 
 df_transformed.write \
     .partitionBy("state") \

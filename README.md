@@ -7,11 +7,10 @@ Les données transformées pourraient être utilisées pour la création de dash
 
 Ce projet est basé sur une architecture en médaillon, permettant une gestion optimale des données en plusieurs niveaux : bronze (raw), silver (intermediate) et gold(structuré pour analyse dans bigquery).
 Le DAG à été fait sous 2 formes différentes avec dags_airflow qui me permettais de faire toutes mes transformations sur un dossier en LOCAL via docker et dags_airflow_cloud
-qui comme son nom l'indique fait le DAG mais cette fois-ci dans le cloud spécifiquement sur un fichier. Grâce à la définition d'une Cloud Function, dès qu'un fichier arrivait
-il est soumis au DAG pour être ingérer.
+qui comme son nom l'indique fait le DAG mais cette fois-ci dans le cloud spécifiquement sur un fichier. Grâce à la définition d'une Cloud Function, dès qu'un fichier json arrive dans mon bucket raw il est soumis au DAG pour être ingérer.
 ## Technologies et Outils Utilisés
 
-- **Google Cloud Platform (GCP)**
+- **Google Cloud Platform (GCP)**<é<>>
   - Cloud Storage
   - BigQuery
   - Dataproc (configuration : master `e2-standard-4`, workers `e2-standard-2`, image `2.1-debian11` stable PySpark)
@@ -37,6 +36,8 @@ il est soumis au DAG pour être ingérer.
 │       ├── user
 │       └── checkin
 ├── spark                        # Scripts PySpark pour transformations
+├── scripts                      # Script pour ingérer les données dans la raw sur GCP
+├── cloud_functions              # Fichiers nécessaire au déploiement de la Cloud Function 
 └── terraform                    # Infrastructure as Code avec Terraform
     ├── .terraform
     │   ├── modules

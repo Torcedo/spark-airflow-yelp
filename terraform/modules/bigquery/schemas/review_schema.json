@@ -9,8 +9,6 @@
     { "name": "date", "type": "TIMESTAMP", "mode": "NULLABLE" },
     { "name": "text", "type": "STRING", "mode": "NULLABLE" },
     { "name": "text_length", "type": "INTEGER", "mode": "NULLABLE" },
-    { "name": "engagement", "type": "INTEGER", "mode": "NULLABLE" },
-    { "name": "year", "type": "INTEGER", "mode": "NULLABLE" },
-    { "name": "month", "type": "INTEGER", "mode": "NULLABLE" }
+    { "name": "engagement", "type": "INTEGER", "mode": "NULLABLE" }
 ]
   

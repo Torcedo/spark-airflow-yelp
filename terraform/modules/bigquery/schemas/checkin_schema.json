@@ -1,6 +1,5 @@
 [
     { "name": "business_id", "type": "STRING", "mode": "NULLABLE" },
-    { "name": "timestamp", "type": "TIMESTAMP", "mode": "NULLABLE" },
-    { "name": "year", "type": "INTEGER", "mode": "NULLABLE" }
+    { "name": "timestamp", "type": "TIMESTAMP", "mode": "NULLABLE" }
   ]
   

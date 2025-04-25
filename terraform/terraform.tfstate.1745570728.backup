@@ -1,0 +1,854 @@
+{
+  "version": 4,
+  "terraform_version": "1.11.4",
+  "serial": 143,
+  "lineage": "c0f0be16-d1f4-651d-ff5d-18c1d1c53353",
+  "outputs": {},
+  "resources": [
+    {
+      "module": "module.bigquery",
+      "mode": "managed",
+      "type": "google_bigquery_dataset",
+      "name": "yelp_dataset",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "access": [
+              {
+                "dataset": [],
+                "domain": "",
+                "group_by_email": "",
+                "iam_member": "",
+                "role": "OWNER",
+                "routine": [],
+                "special_group": "",
+                "user_by_email": "matthoute0405@gmail.com",
+                "view": []
+              },
+              {
+                "dataset": [],
+                "domain": "",
+                "group_by_email": "",
+                "iam_member": "",
+                "role": "OWNER",
+                "routine": [],
+                "special_group": "projectOwners",
+                "user_by_email": "",
+                "view": []
+              },
+              {
+                "dataset": [],
+                "domain": "",
+                "group_by_email": "",
+                "iam_member": "",
+                "role": "READER",
+                "routine": [],
+                "special_group": "projectReaders",
+                "user_by_email": "",
+                "view": []
+              },
+              {
+                "dataset": [],
+                "domain": "",
+                "group_by_email": "",
+                "iam_member": "",
+                "role": "WRITER",
+                "routine": [],
+                "special_group": "projectWriters",
+                "user_by_email": "",
+                "view": []
+              }
+            ],
+            "creation_time": 1729751447,
+            "dataset_id": "yelp",
+            "default_collation": "",
+            "default_encryption_configuration": [],
+            "default_partition_expiration_ms": 0,
+            "default_table_expiration_ms": 0,
+            "delete_contents_on_destroy": true,
+            "description": "Dataset Yelp destiné à recevoir les tables transformées depuis Dataproc",
+            "effective_labels": {
+              "env": "dev",
+              "source": "terraform"
+            },
+            "etag": "Wvb9b5tPc3GXPnTF8kcGlQ==",
+            "external_dataset_reference": [],
+            "friendly_name": "Yelp Dataset",
+            "id": "projects/datasparkyelp/datasets/yelp",
+            "is_case_insensitive": false,
+            "labels": {
+              "env": "dev",
+              "source": "terraform"
+            },
+            "last_modified_time": 1729751447,
+            "location": "europe-west1",
+            "max_time_travel_hours": "168",
+            "project": "datasparkyelp",
+            "resource_tags": null,
+            "self_link": "https://bigquery.googleapis.com/bigquery/v2/projects/datasparkyelp/datasets/yelp",
+            "storage_billing_model": "",
+            "terraform_labels": {
+              "env": "dev",
+              "source": "terraform"
+            },
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19"
+        }
+      ]
+    },
+    {
+      "module": "module.bigquery",
+      "mode": "managed",
+      "type": "google_bigquery_table",
+      "name": "business",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allow_resource_tags_on_deletion": false,
+            "clustering": [
+              "state_partition",
+              "city"
+            ],
+            "creation_time": 1729752294,
+            "dataset_id": "yelp",
+            "deletion_protection": false,
+            "description": "",
+            "effective_labels": {
+              "env": "dev"
+            },
+            "encryption_configuration": [],
+            "etag": "zBE/0X34wxRyB8FIjtW2kA==",
+            "expiration_time": 0,
+            "external_data_configuration": [],
+            "friendly_name": "",
+            "id": "projects/datasparkyelp/datasets/yelp/tables/business",
+            "labels": {
+              "env": "dev"
+            },
+            "last_modified_time": 1729752351,
+            "location": "europe-west1",
+            "materialized_view": [],
+            "max_staleness": "",
+            "num_bytes": 0,
+            "num_long_term_bytes": 0,
+            "num_rows": 0,
+            "project": "datasparkyelp",
+            "range_partitioning": [],
+            "require_partition_filter": false,
+            "resource_tags": null,
+            "schema": "[{\"mode\":\"NULLABLE\",\"name\":\"business_id\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"categories\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"city\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"address\",\"type\":\"STRING\"},{\"fields\":[{\"mode\":\"NULLABLE\",\"name\":\"AcceptsInsurance\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"AgesAllowed\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"Alcohol\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"Ambience\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"BYOB\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"BYOBCorkage\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"BestNights\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"BikeParking\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"BusinessAcceptsBitcoin\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"BusinessAcceptsCreditCards\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"BusinessParking\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"ByAppointmentOnly\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"Caters\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"CoatCheck\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"Corkage\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"DietaryRestrictions\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"DogsAllowed\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"DriveThru\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"GoodForDancing\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"GoodForKids\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"GoodForMeal\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"HairSpecializesIn\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"HappyHour\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"HasTV\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"Music\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"NoiseLevel\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"Open24Hours\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"OutdoorSeating\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"RestaurantsAttire\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"RestaurantsCounterService\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"RestaurantsDelivery\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"RestaurantsGoodForGroups\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"RestaurantsPriceRange2\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"RestaurantsReservations\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"RestaurantsTableService\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"RestaurantsTakeOut\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"Smoking\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"WheelchairAccessible\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"WiFi\",\"type\":\"STRING\"}],\"mode\":\"NULLABLE\",\"name\":\"attributes\",\"type\":\"RECORD\"},{\"fields\":[{\"mode\":\"NULLABLE\",\"name\":\"Monday\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"Tuesday\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"Wednesday\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"Thursday\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"Friday\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"Saturday\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"Sunday\",\"type\":\"STRING\"}],\"mode\":\"NULLABLE\",\"name\":\"hours\",\"type\":\"RECORD\"},{\"mode\":\"NULLABLE\",\"name\":\"is_open\",\"type\":\"BOOLEAN\"},{\"mode\":\"NULLABLE\",\"name\":\"latitude\",\"type\":\"FLOAT\"},{\"mode\":\"NULLABLE\",\"name\":\"longitude\",\"type\":\"FLOAT\"},{\"mode\":\"NULLABLE\",\"name\":\"name\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"postal_code\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"review_count\",\"type\":\"INTEGER\"},{\"mode\":\"NULLABLE\",\"name\":\"stars\",\"type\":\"FLOAT\"},{\"mode\":\"NULLABLE\",\"name\":\"state\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"state_partition\",\"type\":\"STRING\"}]",
+            "self_link": "https://bigquery.googleapis.com/bigquery/v2/projects/datasparkyelp/datasets/yelp/tables/business",
+            "table_constraints": [],
+            "table_id": "business",
+            "table_replication_info": [],
+            "terraform_labels": {
+              "env": "dev"
+            },
+            "time_partitioning": [],
+            "type": "TABLE",
+            "view": []
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.bigquery.google_bigquery_dataset.yelp_dataset"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.bigquery",
+      "mode": "managed",
+      "type": "google_bigquery_table",
+      "name": "checkin",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allow_resource_tags_on_deletion": false,
+            "clustering": null,
+            "creation_time": 1729752299,
+            "dataset_id": "yelp",
+            "deletion_protection": false,
+            "description": "",
+            "effective_labels": {
+              "env": "dev"
+            },
+            "encryption_configuration": [],
+            "etag": "9u3RvFL9Dap6N4P7Rp3gZQ==",
+            "expiration_time": 0,
+            "external_data_configuration": [],
+            "friendly_name": "",
+            "id": "projects/datasparkyelp/datasets/yelp/tables/checkin",
+            "labels": {
+              "env": "dev"
+            },
+            "last_modified_time": 1729752356,
+            "location": "europe-west1",
+            "materialized_view": [],
+            "max_staleness": "",
+            "num_bytes": 0,
+            "num_long_term_bytes": 0,
+            "num_rows": 0,
+            "project": "datasparkyelp",
+            "range_partitioning": [],
+            "require_partition_filter": false,
+            "resource_tags": null,
+            "schema": "[{\"mode\":\"NULLABLE\",\"name\":\"business_id\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"timestamp\",\"type\":\"TIMESTAMP\"}]",
+            "self_link": "https://bigquery.googleapis.com/bigquery/v2/projects/datasparkyelp/datasets/yelp/tables/checkin",
+            "table_constraints": [],
+            "table_id": "checkin",
+            "table_replication_info": [],
+            "terraform_labels": {
+              "env": "dev"
+            },
+            "time_partitioning": [
+              {
+                "expiration_ms": 0,
+                "field": "timestamp",
+                "require_partition_filter": false,
+                "type": "YEAR"
+              }
+            ],
+            "type": "TABLE",
+            "view": []
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.bigquery.google_bigquery_dataset.yelp_dataset"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.bigquery",
+      "mode": "managed",
+      "type": "google_bigquery_table",
+      "name": "review",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allow_resource_tags_on_deletion": false,
+            "clustering": null,
+            "creation_time": 1729752305,
+            "dataset_id": "yelp",
+            "deletion_protection": false,
+            "description": "",
+            "effective_labels": {
+              "env": "dev"
+            },
+            "encryption_configuration": [],
+            "etag": "mnQ1hjkZ3FX9eIClmY5IKg==",
+            "expiration_time": 0,
+            "external_data_configuration": [],
+            "friendly_name": "",
+            "id": "projects/datasparkyelp/datasets/yelp/tables/review",
+            "labels": {
+              "env": "dev"
+            },
+            "last_modified_time": 1729752351,
+            "location": "europe-west1",
+            "materialized_view": [],
+            "max_staleness": "",
+            "num_bytes": 0,
+            "num_long_term_bytes": 0,
+            "num_rows": 0,
+            "project": "datasparkyelp",
+            "range_partitioning": [],
+            "require_partition_filter": false,
+            "resource_tags": null,
+            "schema": "[{\"mode\":\"NULLABLE\",\"name\":\"review_id\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"user_id\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"business_id\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"stars\",\"type\":\"FLOAT\"},{\"mode\":\"NULLABLE\",\"name\":\"useful\",\"type\":\"INTEGER\"},{\"mode\":\"NULLABLE\",\"name\":\"funny\",\"type\":\"INTEGER\"},{\"mode\":\"NULLABLE\",\"name\":\"cool\",\"type\":\"INTEGER\"},{\"mode\":\"NULLABLE\",\"name\":\"date\",\"type\":\"TIMESTAMP\"},{\"mode\":\"NULLABLE\",\"name\":\"text\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"text_length\",\"type\":\"INTEGER\"},{\"mode\":\"NULLABLE\",\"name\":\"engagement\",\"type\":\"INTEGER\"}]",
+            "self_link": "https://bigquery.googleapis.com/bigquery/v2/projects/datasparkyelp/datasets/yelp/tables/review",
+            "table_constraints": [],
+            "table_id": "review",
+            "table_replication_info": [],
+            "terraform_labels": {
+              "env": "dev"
+            },
+            "time_partitioning": [
+              {
+                "expiration_ms": 0,
+                "field": "date",
+                "require_partition_filter": false,
+                "type": "YEAR"
+              }
+            ],
+            "type": "TABLE",
+            "view": []
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.bigquery.google_bigquery_dataset.yelp_dataset"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.bigquery",
+      "mode": "managed",
+      "type": "google_bigquery_table",
+      "name": "tip",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allow_resource_tags_on_deletion": false,
+            "clustering": null,
+            "creation_time": 1729752301,
+            "dataset_id": "yelp",
+            "deletion_protection": false,
+            "description": "",
+            "effective_labels": {
+              "env": "dev"
+            },
+            "encryption_configuration": [],
+            "etag": "ZQwSslZji090l+FvvrWB7w==",
+            "expiration_time": 0,
+            "external_data_configuration": [],
+            "friendly_name": "",
+            "id": "projects/datasparkyelp/datasets/yelp/tables/tip",
+            "labels": {
+              "env": "dev"
+            },
+            "last_modified_time": 1729752356,
+            "location": "europe-west1",
+            "materialized_view": [],
+            "max_staleness": "",
+            "num_bytes": 0,
+            "num_long_term_bytes": 0,
+            "num_rows": 0,
+            "project": "datasparkyelp",
+            "range_partitioning": [],
+            "require_partition_filter": false,
+            "resource_tags": null,
+            "schema": "[{\"mode\":\"NULLABLE\",\"name\":\"user_id\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"business_id\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"compliment_count\",\"type\":\"INTEGER\"},{\"mode\":\"NULLABLE\",\"name\":\"date\",\"type\":\"TIMESTAMP\"},{\"mode\":\"NULLABLE\",\"name\":\"text\",\"type\":\"STRING\"}]",
+            "self_link": "https://bigquery.googleapis.com/bigquery/v2/projects/datasparkyelp/datasets/yelp/tables/tip",
+            "table_constraints": [],
+            "table_id": "tip",
+            "table_replication_info": [],
+            "terraform_labels": {
+              "env": "dev"
+            },
+            "time_partitioning": [
+              {
+                "expiration_ms": 0,
+                "field": "date",
+                "require_partition_filter": false,
+                "type": "YEAR"
+              }
+            ],
+            "type": "TABLE",
+            "view": []
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.bigquery.google_bigquery_dataset.yelp_dataset"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.bigquery",
+      "mode": "managed",
+      "type": "google_bigquery_table",
+      "name": "user",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "allow_resource_tags_on_deletion": false,
+            "clustering": null,
+            "creation_time": 1729752303,
+            "dataset_id": "yelp",
+            "deletion_protection": false,
+            "description": "",
+            "effective_labels": {
+              "env": "dev"
+            },
+            "encryption_configuration": [],
+            "etag": "chrYW/KkzdL7Q1LyJMSJpA==",
+            "expiration_time": 0,
+            "external_data_configuration": [],
+            "friendly_name": "",
+            "id": "projects/datasparkyelp/datasets/yelp/tables/user",
+            "labels": {
+              "env": "dev"
+            },
+            "last_modified_time": 1729752438,
+            "location": "europe-west1",
+            "materialized_view": [],
+            "max_staleness": "",
+            "num_bytes": 0,
+            "num_long_term_bytes": 0,
+            "num_rows": 0,
+            "project": "datasparkyelp",
+            "range_partitioning": [],
+            "require_partition_filter": false,
+            "resource_tags": null,
+            "schema": "[{\"mode\":\"NULLABLE\",\"name\":\"user_id\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"name\",\"type\":\"STRING\"},{\"mode\":\"NULLABLE\",\"name\":\"yelping_since\",\"type\":\"TIMESTAMP\"},{\"mode\":\"NULLABLE\",\"name\":\"review_count\",\"type\":\"INTEGER\"},{\"mode\":\"NULLABLE\",\"name\":\"average_stars\",\"type\":\"FLOAT\"},{\"mode\":\"REQUIRED\",\"name\":\"nb_friends\",\"type\":\"INTEGER\"},{\"mode\":\"REQUIRED\",\"name\":\"elite_count\",\"type\":\"INTEGER\"},{\"mode\":\"NULLABLE\",\"name\":\"engagement\",\"type\":\"INTEGER\"}]",
+            "self_link": "https://bigquery.googleapis.com/bigquery/v2/projects/datasparkyelp/datasets/yelp/tables/user",
+            "table_constraints": [],
+            "table_id": "user",
+            "table_replication_info": [],
+            "terraform_labels": {
+              "env": "dev"
+            },
+            "time_partitioning": [
+              {
+                "expiration_ms": 0,
+                "field": "yelping_since",
+                "require_partition_filter": false,
+                "type": "YEAR"
+              }
+            ],
+            "type": "TABLE",
+            "view": []
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.bigquery.google_bigquery_dataset.yelp_dataset"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.composer",
+      "mode": "managed",
+      "type": "google_composer_environment",
+      "name": "composer_env",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "config": [
+              {
+                "airflow_uri": "https://8471defe8a79443a84a3fc553dc7a19b-dot-europe-west1.composer.googleusercontent.com",
+                "dag_gcs_prefix": "gs://europe-west1-datasparkyelp--0be68411-bucket/dags",
+                "data_retention_config": [
+                  {
+                    "task_logs_retention_config": []
+                  }
+                ],
+                "database_config": [],
+                "encryption_config": [
+                  {
+                    "kms_key_name": ""
+                  }
+                ],
+                "environment_size": "ENVIRONMENT_SIZE_SMALL",
+                "gke_cluster": "",
+                "maintenance_window": [],
+                "master_authorized_networks_config": [],
+                "node_config": [
+                  {
+                    "disk_size_gb": 0,
+                    "enable_ip_masq_agent": false,
+                    "ip_allocation_policy": [
+                      {
+                        "cluster_ipv4_cidr_block": "",
+                        "cluster_secondary_range_name": "",
+                        "services_ipv4_cidr_block": "",
+                        "services_secondary_range_name": "",
+                        "use_ip_aliases": false
+                      }
+                    ],
+                    "machine_type": "",
+                    "network": "",
+                    "oauth_scopes": [],
+                    "service_account": "49844589975-compute@developer.gserviceaccount.com",
+                    "subnetwork": "",
+                    "tags": [],
+                    "zone": ""
+                  }
+                ],
+                "node_count": 0,
+                "private_environment_config": [],
+                "recovery_config": [],
+                "resilience_mode": "STANDARD_RESILIENCE",
+                "software_config": [
+                  {
+                    "airflow_config_overrides": null,
+                    "env_variables": {
+                      "BUCKET_INTERMEDIATE": "datasparkyelp-yelp-intermediate",
+                      "BUCKET_RAW": "datasparkyelp-yelp-raw",
+                      "BUCKET_SCRIPTS": "datasparkyelp-spark-scripts",
+                      "DATAPROC_CLUSTER": "datasparkyelp-dataproc"
+                    },
+                    "image_version": "composer-3-airflow-2.10.5-build.0",
+                    "pypi_packages": null,
+                    "python_version": "",
+                    "scheduler_count": 0
+                  }
+                ],
+                "web_server_config": [],
+                "web_server_network_access_control": [
+                  {
+                    "allowed_ip_range": [
+                      {
+                        "description": "Allows access from all IPv4 addresses (default value)",
+                        "value": "0.0.0.0/0"
+                      },
+                      {
+                        "description": "Allows access from all IPv6 addresses (default value)",
+                        "value": "::0/0"
+                      }
+                    ]
+                  }
+                ],
+                "workloads_config": [
+                  {
+                    "scheduler": [
+                      {
+                        "count": 1,
+                        "cpu": 0.5,
+                        "memory_gb": 2,
+                        "storage_gb": 1
+                      }
+                    ],
+                    "triggerer": [
+                      {
+                        "count": 1,
+                        "cpu": 0.5,
+                        "memory_gb": 1
+                      }
+                    ],
+                    "web_server": [
+                      {
+                        "cpu": 0.5,
+                        "memory_gb": 2,
+                        "storage_gb": 1
+                      }
+                    ],
+                    "worker": [
+                      {
+                        "cpu": 0.5,
+                        "max_count": 3,
+                        "memory_gb": 2,
+                        "min_count": 1,
+                        "storage_gb": 10
+                      }
+                    ]
+                  }
+                ]
+              }
+            ],
+            "effective_labels": {},
+            "id": "projects/datasparkyelp/locations/europe-west1/environments/datasparkyelp-composer",
+            "labels": null,
+            "name": "datasparkyelp-composer",
+            "project": "datasparkyelp",
+            "region": "europe-west1",
+            "storage_config": [
+              {
+                "bucket": "europe-west1-datasparkyelp--0be68411-bucket"
+              }
+            ],
+            "terraform_labels": {},
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo3MjAwMDAwMDAwMDAwLCJkZWxldGUiOjE4MDAwMDAwMDAwMDAsInVwZGF0ZSI6NzIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "module.storage.google_storage_bucket.spark_scripts",
+            "module.storage.google_storage_bucket.yelp_intermediate",
+            "module.storage.google_storage_bucket.yelp_raw"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.dataproc",
+      "mode": "managed",
+      "type": "google_dataproc_cluster",
+      "name": "dataproc_cluster",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "cluster_config": [
+              {
+                "autoscaling_config": [],
+                "auxiliary_node_groups": [],
+                "bucket": "dataproc-staging-europe-west1-49844589975-zdi3kdzp",
+                "dataproc_metric_config": [],
+                "encryption_config": [],
+                "endpoint_config": [
+                  {
+                    "enable_http_port_access": false,
+                    "http_ports": {}
+                  }
+                ],
+                "gce_cluster_config": [
+                  {
+                    "internal_ip_only": false,
+                    "metadata": null,
+                    "network": "https://www.googleapis.com/compute/v1/projects/datasparkyelp/global/networks/default",
+                    "node_group_affinity": [],
+                    "reservation_affinity": [],
+                    "service_account": "",
+                    "service_account_scopes": [
+                      "https://www.googleapis.com/auth/cloud-platform"
+                    ],
+                    "shielded_instance_config": [
+                      {
+                        "enable_integrity_monitoring": true,
+                        "enable_secure_boot": true,
+                        "enable_vtpm": true
+                      }
+                    ],
+                    "subnetwork": "",
+                    "tags": null,
+                    "zone": "europe-west1-b"
+                  }
+                ],
+                "initialization_action": [],
+                "lifecycle_config": [],
+                "master_config": [
+                  {
+                    "accelerators": [],
+                    "disk_config": [
+                      {
+                        "boot_disk_size_gb": 50,
+                        "boot_disk_type": "pd-standard",
+                        "local_ssd_interface": "",
+                        "num_local_ssds": 0
+                      }
+                    ],
+                    "image_uri": "https://www.googleapis.com/compute/v1/projects/cloud-dataproc/global/images/dataproc-2-1-deb11-20250410-165100-rc01",
+                    "instance_names": [
+                      "datasparkyelp-dataproc-m"
+                    ],
+                    "machine_type": "e2-standard-4",
+                    "min_cpu_platform": "AUTOMATIC",
+                    "num_instances": 1
+                  }
+                ],
+                "metastore_config": [],
+                "preemptible_worker_config": [
+                  {
+                    "disk_config": [
+                      {
+                        "boot_disk_size_gb": null,
+                        "boot_disk_type": null,
+                        "local_ssd_interface": null,
+                        "num_local_ssds": null
+                      }
+                    ],
+                    "instance_flexibility_policy": [
+                      {
+                        "instance_selection_list": null,
+                        "instance_selection_results": null
+                      }
+                    ],
+                    "instance_names": [],
+                    "num_instances": 0,
+                    "preemptibility": ""
+                  }
+                ],
+                "security_config": [],
+                "software_config": [
+                  {
+                    "image_version": "2.1.85-debian11",
+                    "optional_components": null,
+                    "override_properties": null,
+                    "properties": {
+                      "capacity-scheduler:yarn.scheduler.capacity.root.default.ordering-policy": "fair",
+                      "core:fs.gs.block.size": "134217728",
+                      "core:fs.gs.metadata.cache.enable": "false",
+                      "core:hadoop.ssl.enabled.protocols": "TLSv1,TLSv1.1,TLSv1.2",
+                      "distcp:mapreduce.map.java.opts": "-Xmx576m",
+                      "distcp:mapreduce.map.memory.mb": "768",
+                      "distcp:mapreduce.reduce.java.opts": "-Xmx576m",
+                      "distcp:mapreduce.reduce.memory.mb": "768",
+                      "hadoop-env:HADOOP_DATANODE_OPTS": "-Xmx512m",
+                      "hdfs:dfs.datanode.address": "0.0.0.0:9866",
+                      "hdfs:dfs.datanode.http.address": "0.0.0.0:9864",
+                      "hdfs:dfs.datanode.https.address": "0.0.0.0:9865",
+                      "hdfs:dfs.datanode.ipc.address": "0.0.0.0:9867",
+                      "hdfs:dfs.namenode.handler.count": "20",
+                      "hdfs:dfs.namenode.http-address": "0.0.0.0:9870",
+                      "hdfs:dfs.namenode.https-address": "0.0.0.0:9871",
+                      "hdfs:dfs.namenode.lifeline.rpc-address": "datasparkyelp-dataproc-m:8050",
+                      "hdfs:dfs.namenode.secondary.http-address": "0.0.0.0:9868",
+                      "hdfs:dfs.namenode.secondary.https-address": "0.0.0.0:9869",
+                      "hdfs:dfs.namenode.service.handler.count": "10",
+                      "hdfs:dfs.namenode.servicerpc-address": "datasparkyelp-dataproc-m:8051",
+                      "mapred-env:HADOOP_JOB_HISTORYSERVER_HEAPSIZE": "4000",
+                      "mapred:mapreduce.job.maps": "9",
+                      "mapred:mapreduce.job.reduce.slowstart.completedmaps": "0.95",
+                      "mapred:mapreduce.job.reduces": "3",
+                      "mapred:mapreduce.jobhistory.recovery.store.class": "org.apache.hadoop.mapreduce.v2.hs.HistoryServerLeveldbStateStoreService",
+                      "mapred:mapreduce.map.cpu.vcores": "1",
+                      "mapred:mapreduce.map.java.opts": "-Xmx2621m",
+                      "mapred:mapreduce.map.memory.mb": "3277",
+                      "mapred:mapreduce.reduce.cpu.vcores": "1",
+                      "mapred:mapreduce.reduce.java.opts": "-Xmx2621m",
+                      "mapred:mapreduce.reduce.memory.mb": "3277",
+                      "mapred:mapreduce.task.io.sort.mb": "256",
+                      "mapred:yarn.app.mapreduce.am.command-opts": "-Xmx2621m",
+                      "mapred:yarn.app.mapreduce.am.resource.cpu-vcores": "1",
+                      "mapred:yarn.app.mapreduce.am.resource.mb": "3277",
+                      "spark-env:SPARK_DAEMON_MEMORY": "4000m",
+                      "spark:spark.driver.maxResultSize": "2048m",
+                      "spark:spark.driver.memory": "4096m",
+                      "spark:spark.executor.cores": "1",
+                      "spark:spark.executor.instances": "2",
+                      "spark:spark.executor.memory": "2893m",
+                      "spark:spark.executorEnv.OPENBLAS_NUM_THREADS": "1",
+                      "spark:spark.plugins.defaultList": "com.google.cloud.dataproc.DataprocSparkPlugin",
+                      "spark:spark.scheduler.mode": "FAIR",
+                      "spark:spark.sql.cbo.enabled": "true",
+                      "spark:spark.sql.optimizer.runtime.bloomFilter.join.pattern.enabled": "true",
+                      "spark:spark.ui.port": "0",
+                      "spark:spark.yarn.am.memory": "640m",
+                      "yarn-env:YARN_NODEMANAGER_HEAPSIZE": "819",
+                      "yarn-env:YARN_RESOURCEMANAGER_HEAPSIZE": "4000",
+                      "yarn-env:YARN_TIMELINESERVER_HEAPSIZE": "4000",
+                      "yarn:yarn.nodemanager.address": "0.0.0.0:8026",
+                      "yarn:yarn.nodemanager.resource.cpu-vcores": "2",
+                      "yarn:yarn.nodemanager.resource.memory-mb": "6554",
+                      "yarn:yarn.resourcemanager.decommissioning-nodes-watcher.decommission-if-no-shuffle-data": "true",
+                      "yarn:yarn.resourcemanager.nodemanager-graceful-decommission-timeout-secs": "86400",
+                      "yarn:yarn.scheduler.maximum-allocation-mb": "6554",
+                      "yarn:yarn.scheduler.minimum-allocation-mb": "1"
+                    }
+                  }
+                ],
+                "staging_bucket": "",
+                "temp_bucket": "dataproc-temp-europe-west1-49844589975-pzkqknzs",
+                "worker_config": [
+                  {
+                    "accelerators": [],
+                    "disk_config": [
+                      {
+                        "boot_disk_size_gb": 50,
+                        "boot_disk_type": "pd-standard",
+                        "local_ssd_interface": "",
+                        "num_local_ssds": 0
+                      }
+                    ],
+                    "image_uri": "https://www.googleapis.com/compute/v1/projects/cloud-dataproc/global/images/dataproc-2-1-deb11-20250410-165100-rc01",
+                    "instance_names": [
+                      "datasparkyelp-dataproc-w-0",
+                      "datasparkyelp-dataproc-w-1"
+                    ],
+                    "machine_type": "e2-standard-2",
+                    "min_cpu_platform": "AUTOMATIC",
+                    "min_num_instances": 0,
+                    "num_instances": 2
+                  }
+                ]
+              }
+            ],
+            "effective_labels": {
+              "env": "dev",
+              "goog-dataproc-cluster-name": "datasparkyelp-dataproc",
+              "goog-dataproc-cluster-uuid": "664882ce-f0ea-4d5d-b400-99e6af4f86d4",
+              "goog-dataproc-drz-resource-uuid": "cluster-664882ce-f0ea-4d5d-b400-99e6af4f86d4",
+              "goog-dataproc-location": "europe-west1"
+            },
+            "graceful_decommission_timeout": "0s",
+            "id": "projects/datasparkyelp/regions/europe-west1/clusters/datasparkyelp-dataproc",
+            "labels": {
+              "env": "dev"
+            },
+            "name": "datasparkyelp-dataproc",
+            "project": "datasparkyelp",
+            "region": "europe-west1",
+            "terraform_labels": {
+              "env": "dev"
+            },
+            "timeouts": null,
+            "virtual_cluster_config": []
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoyNzAwMDAwMDAwMDAwLCJkZWxldGUiOjI3MDAwMDAwMDAwMDAsInVwZGF0ZSI6MjcwMDAwMDAwMDAwMH0sInNjaGVtYV92ZXJzaW9uIjoiMSJ9"
+        }
+      ]
+    },
+    {
+      "module": "module.storage",
+      "mode": "managed",
+      "type": "google_storage_bucket",
+      "name": "spark_scripts",
+      "provider": "provider[\"registry.terraform.io/hashicorp/google\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "autoclass": [],
+            "cors": [],
+            "custom_placement_config": [],
+            "default_event_based_hold": false,
+            "effective_labels": {
+              "env": "dev",
+              "source": "terraform",
+              "usage": "spark-scripts"
+            },
+            "enable_object_retention": false,
+            "encryption": [],
+            "force_destroy": true,
+            "id": "datasparkyelp-spark-scripts",
+            "labels": {
+              "env": "dev",
+              "source": "terraform",
+              "usage": "spark-scripts"
+            },
+            "lifecycle_rule": [],
+            "location": "EU",
+            "logging": [],
+            "name": "datasparkyelp-spark-scripts",
+            "project": "datasparkyelp",
+            "project_number": -1695017577,
+            "public_access_prevention": "inherited",
+            "requester_pays": false,
+            "retention_policy": [],
+            "rpo": "DEFAULT",
+            "self_link": "https://www.googleapis.com/storage/v1/b/datasparkyelp-spark-scripts",
+            "soft_delete_policy": [
+              {
+                "effective_time": "2025-04-24T09:21:15.778Z",
+                "retention_duration_seconds": 604800
+              }
+            ],
+            "storage_class": "STANDARD",
+            "terraform_labels": {
+              "env": "dev",
+              "source": "terraform",
+              "usage": "spark-scripts"
+            },
+            "timeouts": null,
+            "uniform_bucket_level_access": true,
+            "url": "gs://datasparkyelp-spark-scripts",
+            "versioning": [
+              {
+                "enabled": true
+              }
+            ],
+            "website": []
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDAsInJlYWQiOjI0MDAwMDAwMDAwMCwidXBkYXRlIjoyNDAwMDAwMDAwMDB9LCJzY2hlbWFfdmVyc2lvbiI6IjIifQ=="
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}

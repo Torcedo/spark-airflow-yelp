@@ -70,6 +70,7 @@
     {"name": "postal_code", "type": "STRING", "mode": "NULLABLE"},
     {"name": "review_count", "type": "INTEGER", "mode": "NULLABLE"},
     {"name": "stars", "type": "FLOAT", "mode": "NULLABLE"},
-    {"name": "state", "type": "STRING", "mode": "NULLABLE"}
+    {"name": "state", "type": "STRING", "mode": "NULLABLE"},
+    { "name": "state_partition", "type": "STRING", "mode": "NULLABLE" }
   ]
   

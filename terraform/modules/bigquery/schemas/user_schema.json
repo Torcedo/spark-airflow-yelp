@@ -6,7 +6,6 @@
     { "name": "average_stars", "type": "FLOAT", "mode": "NULLABLE" },
     { "name": "nb_friends", "type": "INTEGER", "mode": "REQUIRED" },
     { "name": "elite_count", "type": "INTEGER", "mode": "REQUIRED" },
-    { "name": "engagement", "type": "INTEGER", "mode": "NULLABLE" },
-    { "name": "year", "type": "INTEGER", "mode": "NULLABLE" }
+    { "name": "engagement", "type": "INTEGER", "mode": "NULLABLE" }
   ]
   

@@ -1,0 +1,3 @@
+functions_framework
+google-auth
+requests
