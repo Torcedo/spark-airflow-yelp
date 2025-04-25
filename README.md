@@ -87,6 +87,9 @@ Le DAG Airflow orchestre les étapes suivantes :
 5. Chargement final des fichiers Parquet vers BigQuery
 <img width="224" alt="image" src="https://github.com/user-attachments/assets/9554c407-7c2b-4e98-9a71-73a6d10fc011" />
 
+## Architecture 
+![Architecture Projet GCP](Architecture.png)
+
 ## Difficultés rencontrées & Optimisations réalisées
 
 - Problème de mémoire lors du traitement Spark du fichier `checkin.json` (1,3M lignes)
